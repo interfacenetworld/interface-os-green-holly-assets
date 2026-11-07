@@ -36,3 +36,9 @@ The source package contains **concept/design assets only**. It does not include 
 5. Keep production deployment independent of this asset import.
 
 No live Interface Core or Cloudflare deployment is triggered by initializing this repository.
+
+## Character UI implemented
+
+The repository now includes a browser-ready interface under `ui/index.html`, with `ui/holly.css` and `ui/holly.js` for character modes, speaking-light visual selection, expression controls, local message demonstration, and opt-in camera/microphone start/stop controls. **AI inference, speech recognition, biometric FaceKey validation, and backend plugins are not connected.**
+
+The full original 445 asset files remain outside GitHub until the ZIP is imported and pushed. The repository UI references `assets/` paths and displays a fallback sphere when assets are unavailable. An integration copy is available as a draft PR in Interface Core (PR #158).
