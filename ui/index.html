@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Holly Short Circuit | Interface OS Green</title><link rel="stylesheet" href="./holly.css"></head>
+<body><div class="shell">
+<header><span class="brand">INTERFACE OS GREEN</span><strong>HOLLY SHORT CIRCUIT</strong><span id="state" role="status">Character mode</span></header>
+<nav class="modes" aria-label="Character modes">
+<button data-mode="character" aria-pressed="true">Character</button><button data-mode="sphere" aria-pressed="false">Speaking Light</button><button data-mode="companion" aria-pressed="false">Companion</button><button data-mode="creator" aria-pressed="false">Creator</button></nav>
+<main><section class="stage" id="stage"><img id="holly" src="../assets/09_Holly_Character/holly-full-body-main.png" alt="Holly Short Circuit character"><div class="fallback" id="fallback" hidden aria-label="Holly glowing light visual"></div><h1 id="mode-label">Character Form</h1><p id="expression">Neutral · idle</p><div class="controls"><button id="summon">Summon</button><button id="motion">Pause motion</button><button id="reset">Reset</button></div></section>
+<section class="console"><h2>Holly Conversation</h2><div id="log" class="log" aria-live="polite">Holly: Welcome to Interface OS Green. This is the local interactive design preview.</div><form id="chat"><label for="message">Your message</label><textarea id="message" maxlength="1000"></textarea><button type="submit">Send</button></form><p class="note">Demo response only. No backend inference or private account access is enabled.</p>
+<h2>Camera & Microphone</h2><div class="controls"><button id="camera">Start camera</button><button id="mic">Start microphone</button><button id="stop">Stop all</button></div><video id="preview" autoplay playsinline muted hidden></video><p id="media-status" role="status">Camera off · Microphone off</p>
+<h2>Expressions</h2><div class="controls"><button data-face="neutral">Neutral</button><button data-face="smile">Smile</button><button data-face="curious">Curious</button><button data-face="focus">Focus</button></div></section></main>
+<footer>Original visual assets: Interface OS Green Holly Separate Assets V1.0. Missing assets show a fallback graphic. Voice AI and biometric verification require separate secure integration.</footer></div><script src="./holly.js" defer></script></body></html>
