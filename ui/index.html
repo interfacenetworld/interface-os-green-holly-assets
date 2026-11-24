@@ -5,8 +5,26 @@
 <header><span class="brand">INTERFACE OS GREEN</span><strong>HOLLY SHORT CIRCUIT</strong><span id="state" role="status">Character mode</span></header>
 <nav class="modes" aria-label="Character modes">
 <button data-mode="character" aria-pressed="true">Character</button><button data-mode="sphere" aria-pressed="false">Speaking Light</button><button data-mode="companion" aria-pressed="false">Companion</button><button data-mode="creator" aria-pressed="false">Creator</button></nav>
-<main><section class="stage" id="stage"><img id="holly" src="../assets/09_Holly_Character/holly-full-body-main.png" alt="Holly Short Circuit character"><div class="fallback" id="fallback" hidden aria-label="Holly glowing light visual"></div><h1 id="mode-label">Character Form</h1><p id="expression">Neutral · idle</p><div class="controls"><button id="summon">Summon</button><button id="motion">Pause motion</button><button id="reset">Reset</button></div></section>
-<section class="console"><h2>Holly Conversation</h2><div id="log" class="log" aria-live="polite">Holly: Welcome to Interface OS Green. This is the local interactive design preview.</div><form id="chat"><label for="message">Your message</label><textarea id="message" maxlength="1000"></textarea><button type="submit">Send</button></form><p class="note">Demo response only. No backend inference or private account access is enabled.</p>
+<main>
+<section class="stage" id="stage" aria-labelledby="mode-label">
+  <div class="holly-visual">
+    <img id="holly" src="../public/holly-green/motion/idle-default.png" alt="Holly Short Circuit in character form">
+    <video id="holly-motion" muted playsinline preload="none" aria-hidden="true" hidden></video>
+    <div class="fallback" id="fallback" role="img" aria-label="Holly glowing light visual" hidden></div>
+  </div>
+  <h1 id="mode-label">Character Form</h1>
+  <p id="expression" role="status">Idle</p>
+  <div class="controls">
+    <button id="summon">Summon</button><button id="motion">Pause motion</button><button id="reset">Reset</button>
+  </div>
+  <div class="controls demo-states" role="group" aria-label="Animation preview states">
+    <button data-state="idle-default" aria-pressed="true">Idle</button>
+    <button data-state="idle-attentive" aria-pressed="false">Attentive</button>
+    <button data-state="listening" aria-pressed="false">Listening</button>
+    <button data-state="speaking" aria-pressed="false">Speaking</button>
+  </div>
+</section>
+<section class="console"><h2>Holly Conversation</h2><div id="log" class="log" aria-live="polite">Holly: Welcome to Interface OS Green. This is the local interactive design preview.</div><form id="chat"><label for="message">Your message</label><textarea id="message" maxlength="1000"></textarea><button type="submit">Send</button></form><p class="note">Animation and conversation are local demos. Listening and speaking previews run without microphone input or AI responses.</p>
 <h2>Camera & Microphone</h2><div class="controls"><button id="camera">Start camera</button><button id="mic">Start microphone</button><button id="stop">Stop all</button></div><video id="preview" autoplay playsinline muted hidden></video><p id="media-status" role="status">Camera off · Microphone off</p>
 <h2>Expressions</h2><div class="controls"><button data-face="neutral">Neutral</button><button data-face="smile">Smile</button><button data-face="curious">Curious</button><button data-face="focus">Focus</button></div></section></main>
 <footer>Original visual assets: Interface OS Green Holly Separate Assets V1.0. Missing assets show a fallback graphic. Voice AI and biometric verification require separate secure integration.</footer></div><script src="./holly.js" defer></script></body></html>
