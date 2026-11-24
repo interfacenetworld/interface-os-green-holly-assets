@@ -1,30 +1,61 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Holly Short Circuit | Interface OS Green</title><link rel="stylesheet" href="./holly.css"></head>
-<body><div class="shell">
-<header><span class="brand">INTERFACE OS GREEN</span><strong>HOLLY SHORT CIRCUIT</strong><span id="state" role="status">Character mode</span></header>
-<nav class="modes" aria-label="Character modes">
-<button data-mode="character" aria-pressed="true">Character</button><button data-mode="sphere" aria-pressed="false">Speaking Light</button><button data-mode="companion" aria-pressed="false">Companion</button><button data-mode="creator" aria-pressed="false">Creator</button></nav>
-<main>
-<section class="stage" id="stage" aria-labelledby="mode-label">
-  <div class="holly-visual">
-    <img id="holly" src="../public/holly-green/motion/idle-default.png" alt="Holly Short Circuit in character form">
-    <video id="holly-motion" muted playsinline preload="none" aria-hidden="true" hidden></video>
-    <div class="fallback" id="fallback" role="img" aria-label="Holly glowing light visual" hidden></div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Holly Short Circuit | Interface OS Green</title>
+  <link rel="stylesheet" href="./holly.css">
+  <link rel="stylesheet" href="./holly-overlay.css">
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <span class="brand">INTERFACE OS GREEN</span>
+      <strong>HOLLY SHORT CIRCUIT</strong>
+      <span id="state">Character Form</span>
+    </header>
+    <nav class="modes" aria-label="Pages">
+      <a id="conversation-link" href="#conversation" aria-current="page">Conversation</a>
+      <a id="library-link" href="#library" aria-current="false">Animation library</a>
+    </nav>
+    <main>
+      <section id="conversation" class="console" aria-label="Holly Conversation">
+        <h1>Holly Conversation</h1>
+        <div id="log" class="log" aria-live="polite">Holly: Welcome to the local Interface OS Green preview.</div>
+        <form id="chat">
+          <label for="message">Your message</label>
+          <textarea id="message" maxlength="1000"></textarea>
+          <button type="submit">Send</button>
+        </form>
+        <p class="note">Chat replies are scripted. Microphone recording stays local and is limited to one minute per capture.</p>
+        <h2>Camera</h2>
+        <div class="controls"><button id="camera">Start camera</button><button id="stop">Stop camera and microphone</button></div>
+        <video id="preview" autoplay playsinline muted hidden></video>
+        <p id="camera-status" role="status">Camera off</p>
+      </section>
+      <section id="library" class="console" aria-label="Animation library" hidden>
+        <h1>Animation library</h1>
+        <h2>Character modes</h2>
+        <div class="controls" role="group" aria-label="Character modes">
+          <button data-mode="character">Character</button><button data-mode="sphere">Speaking Light</button>
+          <button data-mode="companion">Companion</button><button data-mode="creator">Creator</button>
+        </div>
+        <h2>Preview states</h2>
+        <div class="controls" role="group" aria-label="Animation preview states">
+          <button data-state="idle-default">Idle</button><button data-state="idle-attentive">Attentive</button>
+          <button data-state="listening">Listening</button><button data-state="speaking">Speaking</button>
+        </div>
+        <h2>Expressions</h2>
+        <div class="controls" role="group" aria-label="Expression previews">
+          <button data-face="neutral">Neutral</button><button data-face="smile">Smile</button>
+          <button data-face="curious">Curious</button><button data-face="focus">Focus</button>
+        </div>
+        <button id="reset">Reset animation</button>
+      </section>
+    </main>
+    <footer>Original artwork from Interface OS Green Holly Separate Assets V1.0.</footer>
   </div>
-  <h1 id="mode-label">Character Form</h1>
-  <p id="expression" role="status">Idle</p>
-  <div class="controls">
-    <button id="summon">Summon</button><button id="motion">Pause motion</button><button id="reset">Reset</button>
-  </div>
-  <div class="controls demo-states" role="group" aria-label="Animation preview states">
-    <button data-state="idle-default" aria-pressed="true">Idle</button>
-    <button data-state="idle-attentive" aria-pressed="false">Attentive</button>
-    <button data-state="listening" aria-pressed="false">Listening</button>
-    <button data-state="speaking" aria-pressed="false">Speaking</button>
-  </div>
-</section>
-<section class="console"><h2>Holly Conversation</h2><div id="log" class="log" aria-live="polite">Holly: Welcome to Interface OS Green. This is the local interactive design preview.</div><form id="chat"><label for="message">Your message</label><textarea id="message" maxlength="1000"></textarea><button type="submit">Send</button></form><p class="note">Animation and conversation are local demos. Listening and speaking previews run without microphone input or AI responses.</p>
-<h2>Camera & Microphone</h2><div class="controls"><button id="camera">Start camera</button><button id="mic">Start microphone</button><button id="stop">Stop all</button></div><video id="preview" autoplay playsinline muted hidden></video><p id="media-status" role="status">Camera off · Microphone off</p>
-<h2>Expressions</h2><div class="controls"><button data-face="neutral">Neutral</button><button data-face="smile">Smile</button><button data-face="curious">Curious</button><button data-face="focus">Focus</button></div></section></main>
-<footer>Original visual assets: Interface OS Green Holly Separate Assets V1.0. Missing assets show a fallback graphic. Voice AI and biometric verification require separate secure integration.</footer></div><script src="./holly.js" defer></script></body></html>
+  <div id="holly-shell"></div>
+  <script type="module" src="./holly.js"></script>
+</body>
+</html>
