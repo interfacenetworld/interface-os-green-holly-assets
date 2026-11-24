@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="voice">
+<defs><filter id="glow" x="-65%" y="-65%" width="230%" height="230%"><feGaussianBlur stdDeviation="1.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g transform="translate(16 16) scale(4)" stroke="#70ffbc" stroke-width="1.65" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"><path d="M2 12h2m2-4v8m3-12v16m3-11v6m3-10v14m3-9v4m2-2h2"/></g>
+</svg>

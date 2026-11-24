@@ -1,0 +1,36 @@
+{
+  "source_archive": "Interface_OS_Green_Holly_Short_Circuit_Separate_Assets_v1.0(2).zip",
+  "source_sha256": "6805e052a780a1dce7c6b00a2ec17c969980b9e423eb6a7cddc5c193616b1583",
+  "file_count": 445,
+  "uncompressed_bytes": 35337662,
+  "directory_counts": {
+    "00_Reference_Boards": 7,
+    "01_Icon_Tiles_PNG": 38,
+    "01_Icons_PNG_Transparent": 71,
+    "01_Icons_SVG": 71,
+    "02_Vectors_PNG": 9,
+    "02_Vectors_SVG": 9,
+    "03_Components": 16,
+    "04_Background_Pages": 19,
+    "04_Background_Pages_Vector": 4,
+    "05_Navigation_Buttons": 41,
+    "06_Widgets": 9,
+    "07_Boxes": 17,
+    "08_Slide_Bars": 18,
+    "09_Holly_Character": 26,
+    "10_Holly_Modes": 5,
+    "11_Animation_Keyframes": 14,
+    "11_Animations_GIF": 14,
+    "12_Speaking_Light": 22,
+    "13_Motion_Control_Buttons": 30,
+    "14_Previews": 3,
+    "README.md": 1,
+    "manifest.json": 1
+  },
+  "required_assets": [
+    "09_Holly_Character/holly-full-body-main.png",
+    "12_Speaking_Light/sphere-hero.png",
+    "10_Holly_Modes/companion-mode.png",
+    "10_Holly_Modes/creator-mode.png"
+  ]
+}

@@ -1,0 +1,77 @@
+.holly-overlay {
+  position: fixed;
+  z-index: 20;
+  inset-inline-end: max(12px, env(safe-area-inset-right));
+  inset-block-end: max(12px, env(safe-area-inset-bottom));
+  width: min(320px, calc(100vw - 24px));
+  max-height: 48vh;
+  max-height: 48dvh;
+  overflow: auto;
+  box-sizing: border-box;
+  border: 1px solid #357752;
+  border-radius: 15px;
+  background: #0b2116;
+  color: #ecfff3;
+  box-shadow: 0 8px 28px #0008;
+  font: 14px system-ui, sans-serif;
+}
+.holly-overlay-panel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+}
+.holly-overlay-content {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+.holly-overlay .controls {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.holly-overlay button {
+  padding: 6px 8px;
+  border: 1px solid #357752;
+  border-radius: 8px;
+  color: inherit;
+  background: #123d25;
+  font: inherit;
+  cursor: pointer;
+}
+.holly-overlay button:focus-visible {
+  outline: 2px solid #83ffb2;
+  outline-offset: 2px;
+}
+.holly-overlay button:disabled { opacity: .75; cursor: default; }
+.holly-overlay [data-holly-mic-status] { font-size: 12px; }
+.holly-overlay [data-recording="true"] { color: #ffbcb7; font-weight: 700; }
+.holly-overlay [data-recording="true"]::before { content: "● "; }
+.holly-visual {
+  position: relative;
+  flex: 0 0 min(112px, 32%);
+  aspect-ratio: 400 / 540;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #04110d;
+}
+.holly-visual img, .holly-visual video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.holly-visual [hidden] { display: none; }
+.holly-visual .fallback {
+  width: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #d0ffe7, #08a66a 40%, #073a2e 80%);
+}
+@media (pointer: coarse) {
+  .holly-overlay button { min-height: 40px; }
+}
