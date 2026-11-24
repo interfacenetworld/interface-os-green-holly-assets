@@ -1,0 +1,7 @@
+# Copy to .dev.vars and keep it out of git
+AUTH_JWT_SECRET=replace-with-random-long-secret-at-least-32-characters
+# Optional admin review secret (separate from user auth)
+ADMIN_REVIEW_SECRET=replace-with-another-long-random-secret
+# Optional, external approved voice synthesis service
+VOICE_CLONE_API_URL=
+VOICE_CLONE_API_TOKEN=

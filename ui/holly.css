@@ -44,3 +44,17 @@ label { display: block; font-size: 13px; }
 textarea { display: block; min-height: 80px; width: 100%; margin: 6px 0; background: #05150c; color: white; border: 1px solid var(--line); border-radius: 9px; padding: 10px; }
 #preview { width: 100%; border-radius: 12px; }
 footer { padding: 24px 3px; }
+.find-heading, .find-guide { display: flex; align-items: center; gap: 10px; }
+.find-heading img, .find-guide img { width: 32px; height: 32px; flex: none; }
+#find-query {
+  flex: 1 1 12rem;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: inherit;
+  background: #05150c;
+  font: inherit;
+}
+#find-results { display: grid; gap: 10px; margin: 0; padding-inline-start: 24px; }
+#find a { color: var(--mint); }

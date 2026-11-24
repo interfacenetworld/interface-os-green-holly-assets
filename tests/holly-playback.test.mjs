@@ -214,3 +214,28 @@ test('timestamped sprite follows browser audio across seek, pause and completion
     await page.close();
   }
 });
+
+test('Chromium connects Find to Holly and keeps the overlay mounted', async () => {
+  const page = await browser.newPage();
+  try {
+    await page.goto(origin + '/ui/index.html');
+    await playing(page, 'idle-default');
+    const overlay = await page.locator('.holly-overlay').elementHandle();
+    await page.locator('#message').fill('find microphone');
+    await page.getByRole('button', { name: 'Send' }).click();
+    await page.waitForURL(/#find$/);
+    await playing(page, 'idle-attentive');
+    await page.locator('#find-results').getByRole('link', { name: 'Holly Short Circuit' }).waitFor();
+    assert(await overlay.evaluate(node => node === document.querySelector('.holly-overlay')));
+    await page.locator('#find-query').fill('space & xyzxyz');
+    await page.getByRole('button', { name: 'Search', exact: true }).click();
+    assert.match(await page.locator('#find-status').textContent(), /No local results/);
+    const web = new URL(await page.locator('#find-web').getAttribute('href'));
+    assert.equal(web.searchParams.get('q'), 'space & xyzxyz');
+    await page.goto(origin + '/ui/index.html?q=avatar');
+    await page.locator('#find-results').getByRole('link', { name: 'Animation library' }).click();
+    await page.waitForURL(/#library$/);
+  } finally {
+    await page.close();
+  }
+});

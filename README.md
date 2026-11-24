@@ -139,3 +139,34 @@ conversation style, and warm, youthful, conversational voice direction. The
 local preview uses scripted sample lines. Emotional expression is simulated.
 Flirting is disabled in the preview. A future conversation service must
 require adult eligibility and explicit opt-in before enabling it.
+
+## Find + Holly in Chromium
+
+Open `http://localhost:8000/ui/#find` in Chromium with the local server running.
+Search in Find, or type `find microphone` in the Holly conversation. Find ranks
+matches from its local catalog and Holly points to the first result. The floating
+overlay remains mounted across Find, Conversation, and Animation Library. A
+browser can also open a query directly, for example
+`http://localhost:8000/ui/?q=avatar`. The Google link sends the query to Google
+when selected.
+
+### Source archive assembly
+
+- The Holly build manual ZIP was extracted to
+  `docs/holly-short-circuit-codex-build-manual/`.
+- The speech-engine ZIP was extracted to `integrations/speech-engine/` as a
+  standalone React and Cloudflare Worker project. The separately supplied
+  master prompt is stored with that project. Its deployment workflow remains
+  nested inside that source tree.
+- The supplied search icon and full-body art match existing files byte for
+  byte. Find uses the original search icon and the newly supplied sphere
+  artwork.
+- The static preview ZIP contains the browser app and its assets.
+  The GitHub branch carries the manuals and speech-engine source separately.
+
+For Interface Core integration, mount Holly once outside the host route outlet,
+use the local Find search interface as the starting point for a permissioned
+catalog adapter, and connect authenticated speech playback through
+`controller.connectSpeech(audio, cues)`. This preview uses a local catalog and
+explicit web-search handoff. It has no live search index, authenticated speech
+connection, or custom Chromium binary.

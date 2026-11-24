@@ -1,0 +1,3 @@
+# Repository agent instructions
+
+Read [`MASTER_BUILD_PROMPT.md`](./MASTER_BUILD_PROMPT.md) first. It is the consolidated product specification and implementation backlog for Interface AI Speech Engine and Holly Short Circuit. Preserve existing code, implement small testable changes, and report verified results only. Run `npm run check`, `npm test`, and `npm run build` when dependencies are available. Never enable voice cloning without verified authorization and a revocation-capable provider. Do not claim literal AI consciousness or feelings. The Cloudflare/Interface Core stack is the intended runtime; do not deploy without user authorization.

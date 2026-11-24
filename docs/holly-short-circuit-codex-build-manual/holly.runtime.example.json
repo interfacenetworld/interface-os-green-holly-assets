@@ -1,0 +1,30 @@
+{
+  "assistant": {
+    "name": "Holly Short Circuit",
+    "defaultLocale": "en-US"
+  },
+  "presence": {
+    "persistent": true,
+    "preferredPosition": "right",
+    "movement": "gentle",
+    "autoAvoidContent": true
+  },
+  "animation": {
+    "breathingCycleSeconds": 4.0,
+    "gestureIntensity": 0.3,
+    "blinkEnabled": true,
+    "gazeEnabled": true,
+    "reducedMotionAware": true
+  },
+  "voice": {
+    "ttsProvider": "adapter",
+    "sttProvider": "adapter",
+    "voiceProfileId": "holly-default",
+    "bargeIn": true,
+    "captions": true
+  },
+  "memory": {
+    "longTermEnabledByDefault": false,
+    "privateSessionAvailable": true
+  }
+}
