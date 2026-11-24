@@ -1,3 +1,4 @@
+import { mountFind, parseFindCommand } from './find.js';
 import { MODES, mountHollyOverlay } from './holly-overlay.js';
 import { demoLines, hollyProfile } from './holly-profile.js';
 
@@ -26,18 +27,37 @@ function updateControls() {
 controller.addEventListener('change', updateControls);
 updateControls();
 
+const runSearch = mountFind({
+  form: $('find-form'), input: $('find-query'), results: $('find-results'),
+  status: $('find-status'), web: $('find-web'),
+  onSearch(query, matches) {
+    $('find-guide').textContent = matches.length
+      ? 'Holly: Start with ' + matches[0].title + '.'
+      : 'Holly: I couldn’t find a local match for “' + query + '”.';
+  },
+});
+
 function updateRoute() {
-  const library = location.hash === '#library';
-  $('conversation').hidden = library;
-  $('library').hidden = !library;
-  $('conversation-link').setAttribute('aria-current', library ? 'false' : 'page');
-  $('library-link').setAttribute('aria-current', library ? 'page' : 'false');
-  controller.setAttentive(!library && document.activeElement === $('message'));
+  const hash = location.hash.slice(1);
+  const route = ['library', 'find'].includes(hash) ? hash : 'conversation';
+  for (const page of ['conversation', 'library', 'find']) {
+    $(page).hidden = page !== route;
+    $(page + '-link').setAttribute('aria-current', page === route ? 'page' : 'false');
+  }
+  controller.setAttentive(document.activeElement === $(route === 'find' ? 'find-query' : 'message') &&
+    route !== 'library');
 }
 window.addEventListener('hashchange', updateRoute);
+const linkedQuery = new URLSearchParams(location.search).get('q');
+if (linkedQuery && !location.hash) {
+  history.replaceState(null, '', '#find');
+  runSearch(linkedQuery);
+}
 updateRoute();
-$('message').addEventListener('focus', () => controller.setAttentive(true));
-$('message').addEventListener('blur', () => controller.setAttentive(false));
+for (const id of ['message', 'find-query']) {
+  $(id).addEventListener('focus', () => controller.setAttentive(true));
+  $(id).addEventListener('blur', () => controller.setAttentive(false));
+}
 
 for (const button of document.querySelectorAll('[data-mode]')) {
   button.addEventListener('click', () => {
@@ -65,8 +85,17 @@ $('chat').addEventListener('submit', event => {
   const value = $('message').value.trim();
   if (!value) return;
   log('You: ' + value);
-  log('Holly (demo): ' + demoLines.reply);
   $('message').value = '';
+  const query = parseFindCommand(value);
+  if (query) {
+    log('Holly: I’ll open Find for that.');
+    location.hash = 'find';
+    updateRoute();
+    runSearch(query);
+    $('find-query').focus();
+  } else {
+    log('Holly (demo): ' + demoLines.reply);
+  }
 });
 microphone.addEventListener('recording', () => log('Microphone recording finished locally.'));
 

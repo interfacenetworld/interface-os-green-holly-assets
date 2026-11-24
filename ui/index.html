@@ -15,10 +15,22 @@
       <span id="state">Character Form</span>
     </header>
     <nav class="modes" aria-label="Pages">
+      <a id="find-link" href="#find">Find</a>
       <a id="conversation-link" href="#conversation" aria-current="page">Conversation</a>
       <a id="library-link" href="#library" aria-current="false">Animation library</a>
     </nav>
     <main>
+      <section id="find" class="console" hidden>
+        <h1 class="find-heading"><img src="../public/holly-green/assets/01_Icons_SVG/search.svg" alt=""> Find</h1>
+        <form id="find-form" role="search">
+          <label for="find-query">Search Interface OS Green</label>
+          <div class="controls"><input type="search" id="find-query" maxlength="200" required><button>Search</button></div>
+        </form>
+        <p id="find-status" role="status">Search Interface OS Green.</p>
+        <ul id="find-results"></ul>
+        <p class="find-guide"><img src="../public/holly-green/find-speaking-sphere.svg" alt=""> <span id="find-guide">Try “animation”, “microphone”, or “GIF”.</span></p>
+        <a id="find-web" hidden>Open Google web search for this query</a>
+      </section>
       <section id="conversation" class="console" aria-label="Holly Conversation">
         <h1>Holly Conversation</h1>
         <div id="log" class="log" aria-live="polite">Local conversation preview.</div>
@@ -27,7 +39,7 @@
           <textarea id="message" maxlength="1000"></textarea>
           <button type="submit">Send</button>
         </form>
-        <p class="note">Chat replies are scripted and Holly’s emotional expressions are simulated. Microphone recording stays local and is limited to one minute per capture.</p>
+        <p class="note">Use “find animations” or “search for microphone” to ask Holly to search. Other chat replies are scripted. Holly’s emotional expressions are simulated. Microphone recording stays local and is limited to one minute per capture.</p>
         <h2>Camera</h2>
         <div class="controls"><button id="camera">Start camera</button><button id="stop">Stop camera and microphone</button></div>
         <video id="preview" autoplay playsinline muted hidden></video>

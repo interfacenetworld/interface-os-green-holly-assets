@@ -1,0 +1,3 @@
+import {describe,it,expect} from 'vitest';import {signLocalToken,verifyBearer} from '../src/worker/auth';
+const secret='testing-secret-replace-with-production-32-characters';
+describe('HS256 identity security',()=>{it('accepts signed identity',async()=>{const jwt=await signLocalToken('test-user',secret);expect((await verifyBearer('Bearer '+jwt,secret))?.sub).toBe('test-user')});it('rejects altered and missing tokens',async()=>{const jwt=await signLocalToken('test-user',secret);expect(await verifyBearer('Bearer '+jwt.slice(0,-2)+'xx',secret)).toBe(null);expect(await verifyBearer(null,secret)).toBe(null)});it('rejects expired token',async()=>{const jwt=await signLocalToken('test-user',secret,-5);expect(await verifyBearer('Bearer '+jwt,secret)).toBe(null)})});
