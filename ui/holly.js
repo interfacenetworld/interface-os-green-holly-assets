@@ -1,6 +1,9 @@
 import { MODES, mountHollyOverlay } from './holly-overlay.js';
+import { demoLines, hollyProfile } from './holly-profile.js';
 
 const $ = id => document.getElementById(id);
+$('character-name').textContent = hollyProfile.character;
+$('log').textContent = 'Holly (demo): ' + demoLines.greeting;
 export const holly = mountHollyOverlay($('holly-shell'));
 const { controller, microphone, player } = holly;
 
@@ -62,7 +65,7 @@ $('chat').addEventListener('submit', event => {
   const value = $('message').value.trim();
   if (!value) return;
   log('You: ' + value);
-  log('Holly (demo): Message received. This preview uses a scripted response.');
+  log('Holly (demo): ' + demoLines.reply);
   $('message').value = '';
 });
 microphone.addEventListener('recording', () => log('Microphone recording finished locally.'));

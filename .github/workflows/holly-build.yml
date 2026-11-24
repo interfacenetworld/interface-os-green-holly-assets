@@ -1,0 +1,26 @@
+name: Holly preview build
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-save --no-package-lock playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node --test tests/*.test.mjs
+      - run: python3 tools/build_holly.py "${{ runner.temp }}/holly-short-circuit.zip"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: holly-short-circuit
+          path: ${{ runner.temp }}/holly-short-circuit.zip
+          if-no-files-found: error

@@ -126,3 +126,16 @@ permission denial, and cue timing against a generated audio fixture. Live
 speech synchronization requires validation against a provider's spoken
 audio and matching viseme timestamps. The production Interface Core shell
 and its speech service were unavailable in this checkout.
+
+## Assemble Holly Short Circuit
+
+Run `python3 tools/build_holly.py /tmp/holly-short-circuit.zip` to package the
+static preview. Extract it, run `python3 -m http.server 8000` from the extracted
+directory, and open `http://localhost:8000/ui/`. The GitHub Actions **Holly preview
+build** workflow runs the tests and uploads the ZIP to the workflow run.
+
+`ui/holly-profile.js` records Holly's personality scores, balanced best-friend
+conversation style, and warm, youthful, conversational voice direction. The
+local preview uses scripted sample lines. Emotional expression is simulated.
+Flirting is disabled in the preview. A future conversation service must
+require adult eligibility and explicit opt-in before enabling it.

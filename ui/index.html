@@ -11,7 +11,7 @@
   <div class="shell">
     <header>
       <span class="brand">INTERFACE OS GREEN</span>
-      <strong>HOLLY SHORT CIRCUIT</strong>
+      <strong id="character-name">Holly Short Circuit</strong>
       <span id="state">Character Form</span>
     </header>
     <nav class="modes" aria-label="Pages">
@@ -21,13 +21,13 @@
     <main>
       <section id="conversation" class="console" aria-label="Holly Conversation">
         <h1>Holly Conversation</h1>
-        <div id="log" class="log" aria-live="polite">Holly: Welcome to the local Interface OS Green preview.</div>
+        <div id="log" class="log" aria-live="polite">Local conversation preview.</div>
         <form id="chat">
           <label for="message">Your message</label>
           <textarea id="message" maxlength="1000"></textarea>
           <button type="submit">Send</button>
         </form>
-        <p class="note">Chat replies are scripted. Microphone recording stays local and is limited to one minute per capture.</p>
+        <p class="note">Chat replies are scripted and Holly’s emotional expressions are simulated. Microphone recording stays local and is limited to one minute per capture.</p>
         <h2>Camera</h2>
         <div class="controls"><button id="camera">Start camera</button><button id="stop">Stop camera and microphone</button></div>
         <video id="preview" autoplay playsinline muted hidden></video>
